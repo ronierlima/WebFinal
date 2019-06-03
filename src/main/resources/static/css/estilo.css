@@ -1,15 +1,36 @@
-body, html {
+body,
+html {
     height: 100%;
 }
 
-.container-fluid{
+header {
+    background-color: #f5f3f4E6;
+    
+}
+
+
+div.container-fluid{
     height: 100%;
-    background-color:#f5f3f4;
+    background-color: #f5f3f4;
 }
-.container{
-    background-color:#fff;
-}
+
 
 #img-logo {
-    max-width: 100px;;
+    max-width: 150px;
+
+}
+
+/* Cadastro */
+
+#cadastro-bg {
+    background-image: url(../img/bg_account_1440.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    height: 50%; 
+}
+
+.content {
+    height: 100%;
+    background-color: #f5f3f4E6;
 }
