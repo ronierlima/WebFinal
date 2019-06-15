@@ -1,72 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/css/estilo.css" />
-    
-    <title>Dicumê</title>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="container">
-        <nav class="navbar navbar-light sticky-top">
-          <a href="">
-            <img
-              src="../static/img/ifood-logo.png"
-              class="img-fluid rounded mx-auto d-block"
-              id="img-logo"
-              alt="logo"
-            />
-          </a>
-          <ul class="nav justify-content-end ">
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="">Cadastre-se</a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="btn btn-danger">Entrar</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="container">
-          <div id="demo" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ul class="carousel-indicators">
-              <li data-target="#demo" data-slide-to="0" class="active"></li>
-              <li data-target="#demo" data-slide-to="1"></li>
-              <li data-target="#demo" data-slide-to="2"></li>
-            </ul>
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-            <!-- The slideshow -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../static/img/img-plate-2@2x.jpg" alt="Los Angeles" width="1100" height="500" />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="../static/img/img-plate-3@2x.jpg"
-                  alt="Chicago"
-                  width="1100"
-                  height="500"
-                />
-              </div>
-              <div class="carousel-item">
-                <img src="../static/img/img-plate-2@2x.jpg" alt="New York" width="1100" height="500" />
-              </div>
-            </div>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous" />
 
-            <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous" />
+
+<title>CURSO</title>
+</head>
+<body>
+	<div class="container-fluid p-0">
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+				<div class="container">
+					<a class="navbar-brand h1 mb-0" href="#"><img
+						src="img/logomarcasite.png" width="120px" height="50px" /></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarNavAltMarkup"
+						aria-controls="navbarNavAltMarkup" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						<div class="navbar-nav">
+							<a class="nav-item nav-link ml-4 mr-4" href="#">Home</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Destaques</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Cardápio</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Quem Somos</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Fale Conosco</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Cadastre-se</a> <a
+								class="btn btn-dark ml-9" href="#">Entrar</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div class="content container-fluid p-0">
+			<div id="carouselExampleIndicators" class="carousel slide"
+				data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0"
+						class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="img/img1.jpg" class="d-block w-100 h-80" alt="..." />
+					</div>
+					<div class="carousel-item">
+						<img src="img/img2.jpg" class="d-block w-100 h-80" alt="..." />
+					</div>
+					<div class="carousel-item">
+						<img src="img/img1.jpg" class="d-block w-100 h-80" alt="..." />
+					</div>
+				</div>
+
+			</div>
+
+			<div class="container mt-5 mb-5">
+				<div class="row justify-content-md-center">
+					<div class="col-sm-12 col-xl-4 mb-4">
+						<div class="card">
+							<img src="img/food.jpg" class="card-img-top" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">Some quick example text to build on the
+									card title and make up the bulk of the card's content.</p>
+								<a href="#" class="btn btn-primary">Ver no cardápio</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-xl-4 mb-4">
+						<div class="card">
+							<img src="img/food.jpg" class="card-img-top" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">Some quick example text to build on the
+									card title and make up the bulk of the card's content.</p>
+								<a href="#" class="btn btn-primary">Ver no cardápio</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-xl-4 mb-4">
+						<div class="card">
+							<img src="img/food.jpg" class="card-img-top" alt="..." />
+							<div class="card-body">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">Some quick example text to build on the
+									card title and make up the bulk of the card's content.</p>
+								<a href="#" class="btn btn-primary">Ver no cardápio</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</body>
 </html>
