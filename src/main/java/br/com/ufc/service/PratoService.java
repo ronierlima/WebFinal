@@ -1,5 +1,6 @@
 package br.com.ufc.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,22 @@ public class PratoService {
 		
 		pr.save(prato); 
 	}
+
+
+	public List<Prato> listar() {
+		
+		return pr.findAll();
+	}
+
+
+	public void excluir(Long codigo) {
+		pr.deleteById(codigo);
+		
+	}
+
+
+	public Prato buscarPorId(Long codigo) {
+		return pr.getOne(codigo);
+	}
+	
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE  html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Pratos Cadastrados</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="content container-fluid p-0">
+		<div class="container mt-5 mb-5">
+			<div class="row justify-content-md-center">
+				<div th:each="prato :${listaDePratos}"
+					class="col-sm-6 col-xl-4 mb-4">
+					<div class="card">
+						<img th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
+							alt="..." />
+						<div class="card-body">
+							<h1 th:text="${prato.nome}" class="card-title"></h1>
+							<p th:text="${prato.preco}" class="card-text"></p>
+							<a th:href="@{/pratos/atualizar/{codigo}(codigo = ${prato.id})}" class="btn btn-primary">Atualizar</a>
+							<a th:href="@{/pratos/excluir/{codigo}(codigo = ${prato.id})}" class="btn btn-danger">Remover</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 	<div th:each="prato :${listaDePratos}" class="col-sm-6 col-xl-4 mb-4"> -->
+	<!-- 		<div class="card"> -->
+	<!-- 			<img th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top" -->
+	<!-- 				alt="..." /> -->
+	<!-- 			<div class="card-body"> -->
+	<!-- 				<h5 th:text="${prato.nome}" class="card-title"></h5> -->
+	<!-- 				<p class="card-text">Some quick example text to build on the -->
+	<!-- 					card title and make up the bulk of the card's content.</p> -->
+	<!-- 				<a href="#" class="btn btn-primary">Ver no cardápio</a> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+
+</body>
+</html>

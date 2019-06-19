@@ -1,10 +1,13 @@
 package br.com.ufc.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.ufc.model.Prato;
 import br.com.ufc.service.PratoService;
+
+
 
 
 @Controller
@@ -48,4 +53,29 @@ public class PratoController {
 		mv.addObject("prato", new Prato());
 		return mv;
 	}
+	
+	
+	
+	@RequestMapping("/listar")
+	public ModelAndView listarPessoas(){
+
+		List<Prato> pratos = pratoService.listar();
+		
+		ModelAndView mv = new ModelAndView("testeListar");
+		mv.addObject("listaDePratos", pratos);
+		
+		return mv;
+	}
+	
+	@RequestMapping("/excluir/{codigo}")
+	public ModelAndView excluir(@PathVariable Long codigo ){
+		//trazer do banco
+		pratoService.excluir(codigo);
+		
+		ModelAndView mv = new ModelAndView("redirect:/pratos/listar");
+	
+		return mv;
+	}
+	
+	
 }
