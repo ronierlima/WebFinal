@@ -10,8 +10,8 @@
 		<div class="row justify-content-md-center">
 			<div th:object="${prato}" class="col-sm-6 col-xl-4 mb-4">
 				<div class="card">
-					<img th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
-						alt="..." />
+					<img width="200px" height="300px" th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
+							alt="..." />
 					<div class="card-body">
 						<h1 th:text="${prato.nome}" class="card-title"></h1>
 						<p th:text="${prato.preco}" class="card-text"></p>
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 
-		<form action="#" th:action="@{/pratos/update}" method="POST"
+		<form action="#" th:action="@{/pratos/atualizar}" method="POST"
 			th:object="${prato}" enctype="multipart/form-data">
 
 			<div class="alert alert-success" role="alert"
@@ -56,6 +56,7 @@
 					>
 			</div>
 			<button type="submit" value="Cadastrar" class="btn btn-primary">Atualizar</button>
+			<a href="/pratos/listar" class="btn btn-link">Ver pratos</a>
 		</form>
 	</div>
 

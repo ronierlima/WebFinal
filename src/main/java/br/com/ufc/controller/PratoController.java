@@ -1,6 +1,5 @@
 package br.com.ufc.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,65 +16,82 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.ufc.model.Prato;
 import br.com.ufc.service.PratoService;
 
-
-
-
 @Controller
 @RequestMapping("/pratos")
 public class PratoController {
-	
+
 	@Autowired
 	private PratoService pratoService;
-	
-	
+
 	@RequestMapping("/cadastrarPrato")
 	public ModelAndView cadastrarPratos() {
-		
+
 		ModelAndView mv = new ModelAndView("addPrato");
-		
+
 		mv.addObject("prato", new Prato());
 		return mv;
 	}
-	
+
 	@PostMapping("/salvar")
-	public ModelAndView salvarPrato(@Validated Prato p, BindingResult result, @RequestParam(value="imagem") MultipartFile imagem) {
-		
-		
-		
+	public ModelAndView salvarPrato(@Validated Prato p, BindingResult result,
+			@RequestParam(value = "imagem") MultipartFile imagem) {
+
 		ModelAndView mv = new ModelAndView("addPrato");
-		
-		if(result.hasErrors())
+
+		if (result.hasErrors())
 			return mv;
-		
+
 		pratoService.cadastrar(p, imagem);
-		mv.addObject("mensagem","Prato cadastrada com sucesso");
-		
+		mv.addObject("mensagem", "Prato cadastrada com sucesso!");
+
 		mv.addObject("prato", new Prato());
 		return mv;
 	}
-	
-	
-	
+
 	@RequestMapping("/listar")
-	public ModelAndView listarPessoas(){
+	public ModelAndView listarPessoas() {
 
 		List<Prato> pratos = pratoService.listar();
-		
+
 		ModelAndView mv = new ModelAndView("testeListar");
 		mv.addObject("listaDePratos", pratos);
-		
+
 		return mv;
 	}
-	
+
 	@RequestMapping("/excluir/{codigo}")
-	public ModelAndView excluir(@PathVariable Long codigo ){
-		//trazer do banco
+	public ModelAndView excluir(@PathVariable Long codigo) {
+		// trazer do banco
 		pratoService.excluir(codigo);
-		
+
 		ModelAndView mv = new ModelAndView("redirect:/pratos/listar");
-	
+
 		return mv;
 	}
-	
-	
+
+	@RequestMapping("/editarPrato/{codigo}")
+	public ModelAndView editarPrato(@PathVariable Long codigo) {
+		// trazer do banco
+		Prato prato = pratoService.buscarPorId(codigo);
+
+		ModelAndView mv = new ModelAndView("atualizarPrato");
+		mv.addObject("prato", prato);
+
+		return mv;
+	}
+
+	@PostMapping("/atualizar")
+	public ModelAndView atualizar(@Validated Prato p, BindingResult result, @RequestParam(value="imagem") MultipartFile imagem) {
+		
+		ModelAndView mv = new ModelAndView("atualizarPrato");
+		
+		if (result.hasErrors())
+			return mv;
+
+		mv.addObject("mensagem", "Prato atualizado com sucesso!");
+		pratoService.atualizar(p, imagem);
+		
+		return mv;
+	}
+
 }

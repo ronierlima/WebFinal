@@ -4,29 +4,36 @@
 <meta charset="UTF-8">
 <title>Cadastrar pratos</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
 
 
-		<form action="#" th:action="@{/pratos/salvar}" method="POST" th:object="${prato}" enctype="multipart/form-data">
+		<form action="#" th:action="@{/pratos/salvar}" method="POST"
+			th:object="${prato}" enctype="multipart/form-data">
 
 			<div class="alert alert-success" role="alert"
 				th:if="${!#strings.isEmpty(mensagem)}">
-				<span th:text="${mensagem}"></span>
+				<i class="far fa-thumbs-up"></i> <span th:text="${mensagem}"></span>
 			</div>
 
 			<div class="alert alert-danger" role="alert"
 				th:if="${#fields.hasAnyErrors()}">
 
 				<div th:each="detailedError : ${#fields.detailedErrors()}">
+					<i class="fas fa-bug"> </i> 
 					<span th:text="${detailedError.message}"></span>
 				</div>
 
 			</div>
 
 			<input type="hidden" th:field="*{id}"></input> <input type="hidden"
-				th:field="*{cod}"></input> <input type="hidden" th:field="*{imagemCaminho}"></input>
+				th:field="*{cod}"></input> <input type="hidden"
+				th:field="*{imagemCaminho}"></input>
 
 			<div class="form-group">
 				<label for="nome">Nome</label> <input th:field="*{nome}" type="text"
@@ -39,12 +46,12 @@
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlFile1">Selecione uma Imagem</label> <input
-					type="file" class="form-control-file"  name="imagem" id="imagem" required>
+					type="file" class="form-control-file" name="imagem" id="imagem">
 			</div>
 			<button type="submit" value="Cadastrar" class="btn btn-primary">Cadastrar</button>
+			<a href="/pratos/listar" class="btn btn-link">Ver pratos</a>
 		</form>
 	</div>
-
 
 </body>
 </html>

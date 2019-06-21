@@ -15,10 +15,21 @@ div.container-fluid{
 }
 
 
-#img-logo {
-    max-width: 150px;
-
+.logo-bg {
+  flex: 25%;
+  max-width: 300px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
+
+.logo-bg img {
+  width: 100%;
+  height: auto;
+}
+
+
 
 /* Cadastro */
 
