@@ -4,35 +4,41 @@
 <meta charset="UTF-8">
 <title>Atualizar prato</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
 		<div class="row justify-content-md-center">
 			<div th:object="${prato}" class="col-sm-6 col-xl-4 mb-4">
 				<div class="card">
-					<img width="200px" height="300px" th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
-							alt="..." />
+					<img width="200px" height="300px"
+						th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
+						alt="..." />
 					<div class="card-body">
 						<h1 th:text="${prato.nome}" class="card-title"></h1>
-						<p th:text="${prato.preco}" class="card-text"></p>
+						<p th:text="'R$ ' + ${prato.preco}" class="card-text"></p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<form action="#" th:action="@{/pratos/atualizar}" method="POST"
+		<form action="#" th:action="@{/EmGula/pratos/atualizar}" method="POST"
 			th:object="${prato}" enctype="multipart/form-data">
 
 			<div class="alert alert-success" role="alert"
 				th:if="${!#strings.isEmpty(mensagem)}">
-				<span th:text="${mensagem}"></span>
+				<i class="far fa-thumbs-up"> </i> <span th:text="${mensagem}"></span>
 			</div>
 
 			<div class="alert alert-danger" role="alert"
 				th:if="${#fields.hasAnyErrors()}">
 
 				<div th:each="detailedError : ${#fields.detailedErrors()}">
-					<span th:text="${detailedError.message}"></span>
+					<i class="fas fa-bug"> </i> <span
+						th:text="${detailedError.message}"></span>
 				</div>
 
 			</div>
@@ -52,11 +58,10 @@
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlFile1">Selecione uma Imagem</label> <input
-					type="file" class="form-control-file" name="imagem" id="imagem"
-					>
+					type="file" class="form-control-file" name="imagem" id="imagem">
 			</div>
 			<button type="submit" value="Cadastrar" class="btn btn-primary">Atualizar</button>
-			<a href="/pratos/listar" class="btn btn-link">Ver pratos</a>
+			<a href="/EmGula/pratos/listar" class="btn btn-link">Ver pratos</a>
 		</form>
 	</div>
 

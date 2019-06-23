@@ -13,7 +13,7 @@
 	<div class="container">
 
 
-		<form action="#" th:action="@{/pratos/salvar}" method="POST"
+		<form action="#" th:action="@{/EmGula/pratos/salvar}" method="POST"
 			th:object="${prato}" enctype="multipart/form-data">
 
 			<div class="alert alert-success" role="alert"
@@ -49,7 +49,7 @@
 					type="file" class="form-control-file" name="imagem" id="imagem">
 			</div>
 			<button type="submit" value="Cadastrar" class="btn btn-primary">Cadastrar</button>
-			<a href="/pratos/listar" class="btn btn-link">Ver pratos</a>
+			<a href="/EmGula/pratos/listar" class="btn btn-link">Ver pratos</a>
 		</form>
 	</div>
 

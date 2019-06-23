@@ -24,7 +24,7 @@ public class PratoService {
 		String caminho = "images/" + prato.getCod() + ".png";
 
 		if (imagem.isEmpty()) {
-			caminho = "images/default.png";
+			caminho = "images/Default/default.png";
 		} else {
 			RonierFileUtils.salvarImagem(caminho, imagem);
 		}

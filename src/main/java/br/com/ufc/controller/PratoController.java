@@ -17,7 +17,7 @@ import br.com.ufc.model.Prato;
 import br.com.ufc.service.PratoService;
 
 @Controller
-@RequestMapping("/pratos")
+@RequestMapping("EmGula/pratos")
 public class PratoController {
 
 	@Autowired
@@ -49,11 +49,11 @@ public class PratoController {
 	}
 
 	@RequestMapping("/listar")
-	public ModelAndView listarPessoas() {
+	public ModelAndView listarPratos() {
 
 		List<Prato> pratos = pratoService.listar();
 
-		ModelAndView mv = new ModelAndView("testeListar");
+		ModelAndView mv = new ModelAndView("listarPratos");
 		mv.addObject("listaDePratos", pratos);
 
 		return mv;
@@ -64,7 +64,7 @@ public class PratoController {
 		// trazer do banco
 		pratoService.excluir(codigo);
 
-		ModelAndView mv = new ModelAndView("redirect:/pratos/listar");
+		ModelAndView mv = new ModelAndView("redirect:/EmGula/pratos/listar");
 
 		return mv;
 	}

@@ -1,6 +1,7 @@
 package br.com.ufc.model;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Prato{
 	@PositiveOrZero(message = "Preços abaixo de zero tu não tem lucro né!")
 	@NotNull(message = "coloca algo")
 	private BigDecimal preco;
-	
+
 	private String imagemCaminho;
 	
 	
