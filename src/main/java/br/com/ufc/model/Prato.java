@@ -1,7 +1,6 @@
 package br.com.ufc.model;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

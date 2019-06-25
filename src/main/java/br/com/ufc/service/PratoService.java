@@ -40,7 +40,6 @@ public class PratoService {
 
 	public void excluir(Long codigo) {
 		pr.deleteById(codigo);
-
 	}
 	
 	public void atualizar(Prato prato, MultipartFile imagem) {
