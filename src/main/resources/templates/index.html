@@ -67,17 +67,18 @@
 			</div>
 
 			<div class="container mt-5 mb-5">
+				<div class="row justify-content-md-center mb-5 shadow p-3 mb-5 bg-white rounded"> <h1>Destaques</h1></div>
 				<div class="row justify-content-md-center">
 					<div th:each="prato :${listaDePratos}"
-						class="col-sm-6 col-xl-4 mb-4">
-						<div class="card text-center">
+						class="col-sm-6 col-xl-4 mb-4 ">
+						<div class="card text-center shadow-lg p-3 mb-5 rounded ">
 							<img width="200px" height="300px"
-								th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
+								th:src=" '/' + ${prato.imagemCaminho}" class="shadow p-3 mb-5 bg-white rounded card-img-top"
 								alt="..." />
-							<div class="card-body">
-								<h1 th:text="${prato.nome}" class="card-title"></h1>
-								<p th:text="'R$ ' + ${prato.preco}" class="card-text"></p>
-								<a th:href="@{/EmGula/cardapio}" class="btn btn-primary">Ver
+							<div class="card-body shadow">
+								<h1 th:text="${prato.nome}" class="shadow-sm card-title"></h1>
+								<p th:text="'R$ ' + ${prato.preco}" class="shadow-sm card-text"></p>
+								<a th:href="@{/EmGula/cardapio}" class="shadow-sm btn btn-primary">Ver
 									no Cardápio</a>
 							</div>
 						</div>

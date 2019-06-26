@@ -44,7 +44,10 @@
 				<form class="mt-5" action="#" th:action="@{/EmGula/salvar}" method="POST"
 					th:object="${usuario}">
 
-					<div class="alert alert-success" role="alert"
+					<div class="card text-center shadow-lg">
+						<div class="card-header"><h1><i class="fas fa-user"> </i> Cadastrar-se</h1></div>
+						<div class="card-body">
+							<div class="alert alert-success" role="alert"
 						th:if="${!#strings.isEmpty(mensagem)}">
 						<i class="far fa-thumbs-up"></i> <span th:text="${mensagem}"></span>
 					</div>
@@ -99,6 +102,9 @@
 						</div>
 					</div>
 					<button type="submit" value="Cadastrar" class="btn btn-primary">Cadastrar</button>
+						</div>
+						<div class="card-footer text-muted"><a class="nav-link" href="/EmGula/logar">Já sou cadastrado</a></div>
+					</div>
 				</form>
 			</div>
 		</div>

@@ -17,7 +17,6 @@ import br.com.emgula.service.PratoService;
 import br.com.emgula.service.UsuarioService;
 
 @Controller
-@RequestMapping("/EmGula")
 public class UsuarioController {
 
 	@Autowired
@@ -27,6 +26,46 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 
 	@RequestMapping("")
+	public ModelAndView homenull() {
+
+		List<Prato> pratos = pratoService.listar();
+		List<Prato> pratosHome = new ArrayList<>();
+		int i = 0;
+
+		for (int j = 0; j < pratos.size(); j++) {
+			if (i == 3)
+				break;
+			pratosHome.add(pratos.get(j));
+			i++;
+		}
+
+		ModelAndView mv = new ModelAndView("redirect:/EmGula");
+		mv.addObject("listaDePratos", pratosHome);
+
+		return mv;
+	}
+	
+	@RequestMapping("/")
+	public ModelAndView homebarra() {
+
+		List<Prato> pratos = pratoService.listar();
+		List<Prato> pratosHome = new ArrayList<>();
+		int i = 0;
+
+		for (int j = 0; j < pratos.size(); j++) {
+			if (i == 3)
+				break;
+			pratosHome.add(pratos.get(j));
+			i++;
+		}
+
+		ModelAndView mv = new ModelAndView("redirect:/EmGula");
+		mv.addObject("listaDePratos", pratosHome);
+
+		return mv;
+	}
+	
+	@RequestMapping("/EmGula")
 	public ModelAndView home() {
 
 		List<Prato> pratos = pratoService.listar();
@@ -46,7 +85,7 @@ public class UsuarioController {
 		return mv;
 	}
 
-	@RequestMapping("/cardapio")
+	@RequestMapping("/EmGula/cardapio")
 	public ModelAndView verCardapio() {
 
 		List<Prato> pratos = pratoService.listar();
@@ -57,7 +96,7 @@ public class UsuarioController {
 		return mv;
 	}
 
-	@RequestMapping("/cadastrar")
+	@RequestMapping("/EmGula/cadastrar")
 	public ModelAndView cadastro() {
 
 		ModelAndView mv = new ModelAndView("cadastro");
@@ -66,7 +105,7 @@ public class UsuarioController {
 		return mv;
 	}
 
-	@PostMapping("/salvar")
+	@PostMapping("/EmGula/salvar")
 	public ModelAndView salvarUsuario(@Validated Usuario u, BindingResult result) throws Exception {
 
 		ModelAndView mv = new ModelAndView("cadastro");
@@ -86,7 +125,7 @@ public class UsuarioController {
 		return mv;
 	}
 	
-	@RequestMapping("/logar")
+	@RequestMapping("/EmGula/logar")
 	public ModelAndView logar() {
 		
 		ModelAndView mv = new ModelAndView("login");
