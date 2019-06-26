@@ -1,6 +1,5 @@
 package br.com.emgula.model;
 
-import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +26,7 @@ public class Prato{
 	
 	@PositiveOrZero(message = "Preços abaixo de zero tu não tem lucro né.")
 	@NotNull(message = "Vai vender como? Bota um preço.")
-	private BigDecimal preco;
+	private Float preco;
 
 	private String imagemCaminho;
 	
@@ -51,7 +50,7 @@ public class Prato{
 		return nome;
 	}
 	
-	public BigDecimal getPreco() {
+	public Float getPreco() {
 		return preco;
 	}
 	
@@ -70,7 +69,7 @@ public class Prato{
 		this.nome = nome;
 	}
 	
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(Float preco) {
 		this.preco = preco;
 	}
 	

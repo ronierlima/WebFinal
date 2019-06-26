@@ -45,8 +45,6 @@ public class PratoService {
 	
 	public void atualizar(Prato prato, MultipartFile imagem) {
 		
-		
-
 		if (!(imagem.isEmpty())) {
 			prato.setCod(UUID.randomUUID().toString());
 
