@@ -1,5 +1,7 @@
 <!DOCTYPE  html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Pratos Cadastrados | EmGula</title>
@@ -11,7 +13,7 @@
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light ">
 				<div class="container">
-					<a class="navbar-brand h1 mb-0" href="/"><img
+					<a class="navbar-brand h1 mb-0" href="/EmGula"><img
 						src="/img/logo.png" width="120px" height="50px" /></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarNavAltMarkup"
@@ -22,13 +24,13 @@
 
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<div class="navbar-nav">
-							<a class="nav-item nav-link ml-4 mr-4" href="/EmGula">Home</a>
-							<a class="nav-item nav-link ml-4 mr-4" href="#">Destaques</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="/EmGula/Cardapio">Cardápio</a>
+							<a class="nav-item nav-link ml-4 mr-4" href="/EmGula">Home</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Destaques</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="/EmGula/cardapio">Cardápio</a>
 							<a class="nav-item nav-link ml-4 mr-4" href="#">Quem Somos</a> <a
 								class="nav-item nav-link ml-4 mr-4" href="#">Fale Conosco</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="#">Cadastre-se</a> <a
-								class="btn btn-dark ml-9" href="#">Entrar</a>
+								class="nav-item nav-link ml-4 mr-4" href="/EmGula/cadastrar">Cadastre-se</a> <a
+								class="btn btn-dark ml-9" href="/EmGula/logar">Entrar</a>
 						</div>
 					</div>
 				</div>
@@ -38,7 +40,7 @@
 			<div class="row justify-content-md-center">
 				<div th:each="prato :${listaDePratos}"
 					class="col-sm-6 col-xl-4 mb-4">
-					<div class="card">
+					<div class="card text-center">
 						<img width="200px" height="300px"
 							th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
 							alt="..." />

@@ -6,15 +6,13 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-	crossorigin="anonymous" />
+
 
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo.css" />
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
 
-<!-- Bootstrap CSS -->
+
 
 <title>Home | EmGula</title>
 </head>
@@ -23,7 +21,7 @@
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light ">
 				<div class="container">
-					<a class="navbar-brand h1 mb-0" href="#"><img
+					<a class="navbar-brand h1 mb-0" href="/EmGula"><img
 						src="/img/logo.png" width="120px" height="50px" /></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarNavAltMarkup"
@@ -36,17 +34,17 @@
 						<div class="navbar-nav">
 							<a class="nav-item nav-link ml-4 mr-4" href="/EmGula">Home</a> <a
 								class="nav-item nav-link ml-4 mr-4" href="#">Destaques</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="/EmGula/Cardapio">Cardápio</a>
+								class="nav-item nav-link ml-4 mr-4" href="/EmGula/cardapio">Cardápio</a>
 							<a class="nav-item nav-link ml-4 mr-4" href="#">Quem Somos</a> <a
 								class="nav-item nav-link ml-4 mr-4" href="#">Fale Conosco</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="#">Cadastre-se</a> <a
-								class="btn btn-outline-dark ml-9" href="#">Entrar</a>
+								class="nav-item nav-link ml-4 mr-4" href="/EmGula/cadastrar">Cadastre-se</a>
+							<a class="btn btn-dark ml-9" href="/EmGula/logar">Entrar</a>
 						</div>
 					</div>
 				</div>
 			</nav>
 		</header>
-		<div class="content container-fluid p-0">
+		<div class="content container-fluid p-0 h-100">
 			<div id="carouselExampleIndicators" class="carousel slide"
 				data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -79,21 +77,26 @@
 							<div class="card-body">
 								<h1 th:text="${prato.nome}" class="card-title"></h1>
 								<p th:text="'R$ ' + ${prato.preco}" class="card-text"></p>
-								<a
-									th:href="@{/EmGula/Cardapio}"
-									class="btn btn-primary">Ver no Cardápio</a> 
+								<a th:href="@{/EmGula/cardapio}" class="btn btn-primary">Ver
+									no Cardápio</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
 		</div>
+		<footer class=" card text-center">
+			<div class="card-header">© Copyright 2019 - EmGula. Todos os
+				direitos reservados.</div>
+			<div class="card-footer text-muted">Desenvolvido por Ronier
+				Lima</div>
+		</footer>
 	</div>
 
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </body>
 </html>

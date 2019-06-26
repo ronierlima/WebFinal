@@ -1,47 +1,16 @@
-body,
-html {
-    height: 100%;
+body, html {
+	height: 100%;
 }
 
-header {
-    background-color: #f5f3f4E6;
-    
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: url(../img/tijolo.jpg);
+	background-color: #f5f6fa;
 }
 
+.cadastro{  background-color: #f5f6fa66;
+	
 
-div.container-fluid{
-    height: 100%;
-    background-color: #f5f3f4;
-}
-
-
-.logo-bg {
-  flex: 25%;
-  max-width: 300px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-
-.logo-bg img {
-  width: 100%;
-  height: auto;
-}
-
-
-
-/* Cadastro */
-
-#cadastro-bg {
-    background-image: url(../img/bg_account_1440.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; 
-    height: 50%; 
-}
-
-.content {
-    height: 100%;
-    background-color: #f5f3f4E6;
 }

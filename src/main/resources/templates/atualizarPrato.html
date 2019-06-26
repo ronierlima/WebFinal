@@ -10,61 +10,104 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<div class="container">
-		<div class="row justify-content-md-center">
-			<div th:object="${prato}" class="col-sm-6 col-xl-4 mb-4">
-				<div class="card">
-					<img width="200px" height="300px"
-						th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
-						alt="..." />
-					<div class="card-body">
-						<h1 th:text="${prato.nome}" class="card-title"></h1>
-						<p th:text="'R$ ' + ${prato.preco}" class="card-text"></p>
+
+	<div class="content container-fluid p-0">
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+				<div class="container">
+					<a class="navbar-brand h1 mb-0" href="/EmGula"><img
+						src="/img/logo.png" width="120px" height="50px" /></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarNavAltMarkup"
+						aria-controls="navbarNavAltMarkup" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						<div class="navbar-nav">
+							<a class="nav-item nav-link ml-4 mr-4" href="/EmGula">Home</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Destaques</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="/EmGula/cardapio">Cardápio</a>
+							<a class="nav-item nav-link ml-4 mr-4" href="#">Quem Somos</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Fale Conosco</a>
+							<div class="nav-item d-inline-flex" sec:authorize="isAnonymous()">
+								<a class="nav-link" href="/EmGula/cadastrar">Cadastre-se</a> <a
+									class="btn btn-dark ml-9" href="/EmGula/logar">Entrar</a>
+							</div>
+							<div sec:authorize="isAuthenticated()"
+								class="nav-item d-inline-flex">
+								<a class="btn btn-danger " href="/logout">Encerrar sessão</a>
+							</div>
+
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<form action="#" th:action="@{/EmGula/pratos/atualizar}" method="POST"
-			th:object="${prato}" enctype="multipart/form-data">
-
-			<div class="alert alert-success" role="alert"
-				th:if="${!#strings.isEmpty(mensagem)}">
-				<i class="far fa-thumbs-up"> </i> <span th:text="${mensagem}"></span>
-			</div>
-
-			<div class="alert alert-danger" role="alert"
-				th:if="${#fields.hasAnyErrors()}">
-
-				<div th:each="detailedError : ${#fields.detailedErrors()}">
-					<i class="fas fa-bug"> </i> <span
-						th:text="${detailedError.message}"></span>
+			</nav>
+		</header>
+		<div class="container mt-5 mb-5">
+			<div class="row justify-content-md-center">
+				<div th:object="${prato}" class="col-sm-6 col-xl-4 mb-4">
+					<div class="card text-center">
+						<img width="200px" height="300px"
+							th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
+							alt="..." />
+						<div class="card-body">
+							<h1 th:text="${prato.nome}" class="card-title"></h1>
+							<p th:text="'R$ ' + ${prato.preco}" class="card-text"></p>
+						</div>
+					</div>
 				</div>
 
-			</div>
 
-			<input type="hidden" th:field="*{id}"></input> <input type="hidden"
-				th:field="*{cod}"></input> <input type="hidden"
-				th:field="*{imagemCaminho}"></input>
+				<form class="col-12" action="#"
+					th:action="@{/EmGula/pratos/atualizar}" method="POST"
+					th:object="${prato}" enctype="multipart/form-data">
 
-			<div class="form-group">
-				<label for="nome">Nome</label> <input th:field="*{nome}" type="text"
-					class="form-control" id="nome" placeholder="Nome do Prato">
-			</div>
-			<div class="form-group">
-				<label for="nome">Preço</label> <input th:field="*{preco}"
-					type="text" class="form-control" id="preco"
-					placeholder="Preço do Prato">
-			</div>
-			<div class="form-group">
-				<label for="exampleFormControlFile1">Selecione uma Imagem</label> <input
-					type="file" class="form-control-file" name="imagem" id="imagem">
-			</div>
-			<button type="submit" value="Cadastrar" class="btn btn-primary">Atualizar</button>
-			<a href="/EmGula/pratos/listar" class="btn btn-link">Ver pratos</a>
-		</form>
-	</div>
+					<div class="alert alert-success" role="alert"
+						th:if="${!#strings.isEmpty(mensagem)}">
+						<i class="far fa-thumbs-up"> </i> <span th:text="${mensagem}"></span>
+					</div>
 
+					<div class="alert alert-danger" role="alert"
+						th:if="${#fields.hasAnyErrors()}">
 
+						<div th:each="detailedError : ${#fields.detailedErrors()}">
+							<i class="fas fa-bug"> </i> <span
+								th:text="${detailedError.message}"></span>
+						</div>
+
+					</div>
+
+					<input type="hidden" th:field="*{id}"></input> <input type="hidden"
+						th:field="*{cod}"></input> <input type="hidden"
+						th:field="*{imagemCaminho}"></input>
+
+					<div class="form-group">
+						<label for="nome">Nome</label> <input th:field="*{nome}"
+							type="text" class="form-control" id="nome"
+							placeholder="Nome do Prato">
+					</div>
+					<div class="form-group">
+						<label for="nome">Preço</label> <input th:field="*{preco}"
+							type="text" class="form-control" id="preco"
+							placeholder="Preço do Prato">
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlFile1">Selecione uma Imagem</label>
+						<input type="file" class="form-control-file" name="imagem"
+							id="imagem">
+					</div>
+					<div class="form-group">
+						<button type="submit" value="Cadastrar" class="btn btn-primary ">Atualizar</button>
+						<a href="/EmGula/cardapio" class="btn btn-link">Ver pratos</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<footer class="card text-center">
+			<div class="card-header">© Copyright 2019 - EmGula. Todos os direitos reservados.</div>
+			<div class="card-footer text-muted">Desenvolvido por Ronier Lima</div>
+		</footer>
 </body>
 </html>

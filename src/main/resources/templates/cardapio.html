@@ -1,17 +1,22 @@
 <!DOCTYPE  html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html class="h-100"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo.css" />
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+
 <title>Cardápio | EmGula</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 
 </head>
-<body>
-	<div class="content container-fluid p-0">
+<body class="h-100">
+	<div class="content container-fluid p-0 d-flex flex-column ">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light ">
 				<div class="container">
-					<a class="navbar-brand h1 mb-0" href="/"><img
+					<a class="navbar-brand h1 mb-0" href="/EmGula"><img
 						src="/img/logo.png" width="120px" height="50px" /></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarNavAltMarkup"
@@ -22,35 +27,63 @@
 
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<div class="navbar-nav">
-							<a class="nav-item nav-link ml-4 mr-4" href="/EmGula">Home</a>
-							<a class="nav-item nav-link ml-4 mr-4" href="#">Destaques</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="/EmGula/Cardapio">Cardápio</a>
+							<a class="nav-item nav-link ml-4 mr-4" href="/EmGula">Home</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="#">Destaques</a> <a
+								class="nav-item nav-link ml-4 mr-4" href="/EmGula/cardapio">Cardápio</a>
 							<a class="nav-item nav-link ml-4 mr-4" href="#">Quem Somos</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="#">Fale Conosco</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="#">Cadastre-se</a> <a
-								class="btn btn-dark ml-9" href="#">Entrar</a>
+								class="nav-item nav-link ml-4 mr-4" href="#">Fale Conosco</a>
+							<div class="nav-item d-inline-flex" sec:authorize="isAnonymous()">
+								<a class="nav-link" href="/EmGula/cadastrar">Cadastre-se</a> <a
+									class="btn btn-dark ml-9" href="/EmGula/logar">Entrar</a>
+							</div>
+							<div sec:authorize="isAuthenticated()"
+								class="nav-item d-inline-flex">
+								<a class="btn btn-danger " href="/logout">Encerrar sessão</a>
+							</div>
+
 						</div>
 					</div>
 				</div>
 			</nav>
 		</header>
-		<div class="container mt-5 mb-5">
+		<div class="container mt-5 mb-5 h-100">
+
+			<div class="row justify-content-md-center mb-5"
+				sec:authorize="hasRole('ROLE_ADM')">
+				<a class="btn btn-outline-success btn-lg btn-block"
+					href="/EmGula/pratos/cadastrarPrato">Adcionar Novos Pratos</a>
+			</div>
+
 			<div class="row justify-content-md-center">
 				<div th:each="prato :${listaDePratos}"
 					class="col-sm-6 col-xl-4 mb-4">
-					<div class="card">
+					<div class="card text-center">
 						<img width="200px" height="300px"
 							th:src=" '/' + ${prato.imagemCaminho}" class="card-img-top"
 							alt="..." />
 						<div class="card-body">
 							<h1 th:text="${prato.nome}" class="card-title"></h1>
 							<p th:text="'R$ ' + ${prato.preco}" class="card-text"></p>
+							<a sec:authorize="hasRole('ROLE_ADM')"
+								th:href="@{/EmGula/pratos/editarPrato/{codigo}(codigo = ${prato.id})}"
+								class="btn btn-primary">Atualizar</a> <a
+								sec:authorize="hasRole('ROLE_ADM')"
+								th:href="@{/EmGula/pratos/excluir/{codigo}(codigo = ${prato.id})}"
+								class="btn btn-danger">Remover</a> <a
+								th:href="@{/EmGula/carrinho}" class="btn btn-primary">ADD
+								CAR</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<footer class=" card text-center">
+			<div class="card-header">© Copyright 2019 - EmGula. Todos os
+				direitos reservados.</div>
+			<div class="card-footer text-muted">Desenvolvido por Ronier
+				Lima</div>
+		</footer>
 	</div>
-	
+
 </body>
 </html>
