@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.emgula.model.Prato;
+import br.com.emgula.model.Role;
 import br.com.emgula.model.Usuario;
 import br.com.emgula.service.PratoService;
 import br.com.emgula.service.UsuarioService;
@@ -32,8 +33,7 @@ public class UsuarioController {
 
 	@Autowired
 	private PedidoService pedidoService;
-	
-	
+
 	@RequestMapping("")
 	public ModelAndView homenull() {
 
@@ -134,14 +134,13 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/EmGula/logar")
-	public ModelAndView logar()  throws Exception{
-		
+	public ModelAndView logar() {
+
 		ModelAndView mv = new ModelAndView("login");
 
 		return mv;
 	}
-	
-	
+
 	@RequestMapping("/EmGula/addCarrinho/{codigo}")
 	public ModelAndView aadPrato(@PathVariable Long codigo) {
 		System.out.println(codigo);
@@ -152,8 +151,18 @@ public class UsuarioController {
 		return mv;
 
 	}
-
 	
+	@RequestMapping("/EmGula/listarClientes")
+	public ModelAndView listarClients() {
+		
+		List<Usuario> users = usuarioService.listarClientes();
+		
+		ModelAndView mv = new ModelAndView("listarClientes");
+		mv.addObject("listaDeClientes", users);
+
+		return mv;
+	}
+
 	@RequestMapping("/EmGula/historico")
 	public ModelAndView listarPedidos() {
 		ModelAndView mv = new ModelAndView("historicoPedidos");

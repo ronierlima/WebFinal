@@ -52,5 +52,9 @@ public class UsuarioService {
 		return (Usuario) buscarPorEmail(user.getUsername());
 	}
 	
+	public List<Usuario> listarClientes(){
+		return ur.findAll();
+	}
+	
 	
 }
