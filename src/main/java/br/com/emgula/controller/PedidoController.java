@@ -54,9 +54,9 @@ public class PedidoController {
 	}
 	
 	@RequestMapping("/confirmar")
-	public ModelAndView confirmarPedido(@RequestParam(value="enderecoPedido") String endereco) {
+	public ModelAndView confirmarPedido() {
 		Pedido pedido = new Pedido();
-		pedido.setEnderecoPedido(endereco);
+		pedido.setEnderecoPedido(usuarioService.getUserLogado().getEnd());
 		pedido.setValorTotal(getValorTotalCarrinho());
 		pedido.setCodigoCliente(usuarioService.getUserLogado().getCodigo());
 		String pratoPedido = " ";

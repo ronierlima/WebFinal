@@ -13,7 +13,7 @@
 
 </head>
 <body>
-	<div class="content container-fluid p-0 d-flex flex-column ">
+	<div class="content container-fluid p-0 d-flex flex-column h-100">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light ">
 				<div class="container">
@@ -55,13 +55,22 @@
 			</nav>
 		</header>
 		<div
-			class="container mt-5 h-100  d-flex flex-column justify-content-center ">
+			class="container mt-5  p-3 d-flex flex-column justify-content-center ">
 			<div
+			th:if="${historicoPedidos.isEmpty()}"
+				class="row justify-content-md-center mb-5 shadow p-3 mb-5 bg-white rounded text-secondary d-flex flex-column justify-content-center">
+				<h1 class="text-center">Você não possui nenhuma compra efetuada</h1>
+				<a th:href="@{/EmGula/cardapio}"
+									class=" p-3 btn btn-primary">Ver Cardápio</a>
+			</div>
+			
+			<div
+			th:if="${!historicoPedidos.isEmpty()}"
 				class="row justify-content-md-center mb-5 shadow mt-5 bg-white rounded h-100">
-				<div class=" text-center shadow-lg p-3 mb-5 mt-5 rounded ">
+				<div  class=" text-center shadow-lg p-3 mb-5 mt-5 rounded ">
 
-					<h1 style="text-align: center;">Historico de Pedidos</h1>
-					<table
+					<h1 th:if="${!historicoPedidos.isEmpty()}" style="text-align: center;">Historico de Pedidos</h1>
+					<table th:if="${!historicoPedidos.isEmpty()}"
 						class="table table-dark table-striped tablePratos table-bordered table-hover table-responsive-sm">
 						<thead>
 							<tr>
@@ -83,13 +92,13 @@
 			</div>
 
 		</div>
-		<div class=" mt-5 mb-5"></div><div class=" mt-5 mb-5"></div>
-		<footer class=" card text-center mt-5">
+		
+	</div>
+	<footer class=" card text-center mt-5">
 			<div class="card-header">© Copyright 2019 - EmGula. Todos os
 				direitos reservados.</div>
 			<div class="card-footer text-muted">Desenvolvido por Ronier
 				Lima</div>
 		</footer>
-	</div>
 </body>
 </html>
