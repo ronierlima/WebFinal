@@ -39,7 +39,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/EmGula/quemSomos").permitAll()
 		.antMatchers("/EmGula/faleConosco").permitAll()
 		.antMatchers("/EmGula/pratos/cadastrarPratos").hasRole("ADM")
-		.antMatchers("/EmGula/pratos/listar").hasRole("ADM")
 		
 		.anyRequest().authenticated()
 		

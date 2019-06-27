@@ -42,7 +42,7 @@ public class Usuario implements UserDetails{
 	private List<Role> roles;
 	
 	
-	@NotBlank(message = "Preencha o campo nome")
+	@NotBlank(message = "Diz teu nome aí bixão !!!")
 	private String nome;
 	
 	@NotBlank(message = "Sem cpf, sem cadastro !!!")
@@ -57,12 +57,12 @@ public class Usuario implements UserDetails{
 	@Column(name = "Data_Nascimento")
 	private Date dataNascimento;
 	
-	@NotBlank(message = "Preencha sua data de nascimento seu marreco")
+	@NotBlank(message = "Diz onde tu mora, vailá !!!")
 	@Column(name = "endereco")
 	private String end;
 
-	@NotBlank(message = "Sem email, sem cadastro !!!")
-	@Email(message = "Email should be valid")
+	@NotBlank(message = "Email que é bom tu num bota !!!")
+	@Email(message = "Esse email ai não voga não")
 	private String email;
 
 	@NotBlank(message = "Sem senha, sem cadastro !!!")

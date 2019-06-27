@@ -66,7 +66,7 @@ public class PratoController {
 		// trazer do banco
 		pratoService.excluir(codigo);
 
-		ModelAndView mv = new ModelAndView("redirect:/EmGula/pratos/cardapio");
+		ModelAndView mv = new ModelAndView("redirect:/EmGula/cardapio");
 
 		return mv;
 	}

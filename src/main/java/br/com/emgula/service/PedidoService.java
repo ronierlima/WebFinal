@@ -1,5 +1,6 @@
 package br.com.emgula.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,29 +9,32 @@ import org.springframework.stereotype.Service;
 import br.com.emgula.model.Pedido;
 import br.com.emgula.repository.PedidoRepository;
 
+
 @Service
 public class PedidoService {
-
+	
 	@Autowired
-	private PedidoRepository pedidoR;
-
-	public void cadastrar(Pedido pedido, boolean status) {
-
-		if (status) {
-			pedidoR.save(pedido);
-		} else {
-			Pedido p1 = (Pedido)pedidoR.findByIdCliente(pedido.getIdCliente());
-			if (p1 == null) {
-				pedidoR.save(pedido);
-			} else {
-				pedido.setId(p1.getId());
-				pedidoR.save(pedido);
+	private PedidoRepository pedidoRepositorio;
+	
+	public void cadastrar(Pedido pedido) {
+		pedidoRepositorio.save(pedido);
+	}
+	
+	public List<Pedido> listarPedidosPorId(Long clienteId){
+		List<Pedido> clientePedidos = new ArrayList<Pedido>();
+		for (Pedido pedido : pedidoRepositorio.findAll()) {
+			if (pedido.getCodigoCliente() == clienteId) {
+				clientePedidos.add(pedido);
 			}
 		}
-
+		return clientePedidos;
 	}
-
-	public List<Pedido> listar() {
-		return pedidoR.findAll();
+	
+	public void excluir(Long codigo) {
+		pedidoRepositorio.deleteById(codigo);
+	}
+	
+	public Pedido buscar(Long codigo) {
+		return pedidoRepositorio.getOne(codigo);
 	}
 }

@@ -3,11 +3,10 @@ package br.com.emgula;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class SpringBootCrudApplication {
+public class EmGulaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootCrudApplication.class, args);
+		SpringApplication.run(EmGulaApplication.class, args);
 	}
 
 }

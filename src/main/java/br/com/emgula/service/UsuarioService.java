@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import br.com.emgula.model.Pedido;
 import br.com.emgula.model.Role;
 import br.com.emgula.model.Usuario;
 import br.com.emgula.repository.PedidoRepository;
@@ -53,8 +52,5 @@ public class UsuarioService {
 		return (Usuario) buscarPorEmail(user.getUsername());
 	}
 	
-	public List<Pedido> buscarPedidos(Long codigo){
-		List<Pedido> pedidos =  pr.findByIdCliente(codigo);
-		return pedidos;
-	}
+	
 }

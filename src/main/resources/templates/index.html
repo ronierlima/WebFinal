@@ -10,7 +10,8 @@
 
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/estilo.css" />
-<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+<link rel="stylesheet" type="text/css"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
 
 
 
@@ -30,15 +31,28 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
-					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-						<div class="navbar-nav">
+					<div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNavAltMarkup">
+						<div class="navbar-nav d-flex ">
 							<a class="nav-item nav-link ml-4 mr-4" href="/EmGula">Home</a> <a
 								class="nav-item nav-link ml-4 mr-4" href="#">Destaques</a> <a
 								class="nav-item nav-link ml-4 mr-4" href="/EmGula/cardapio">Cardápio</a>
-							<a class="nav-item nav-link ml-4 mr-4" href="#">Quem Somos</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="#">Fale Conosco</a> <a
-								class="nav-item nav-link ml-4 mr-4" href="/EmGula/cadastrar">Cadastre-se</a>
-							<a class="btn btn-dark ml-9" href="/EmGula/logar">Entrar</a>
+								 <a sec:authorize="hasRole('ROLE_ADM')"
+								class="nav-item nav-link ml-4 mr-4" href="#">Ver clientes</a> <a
+								sec:authorize="hasRole('ROLE_CLIENTE')"
+								class="nav-item nav-link ml-4 mr-4" href="/EmGula/pedido/sacola">Pedido</a> <a
+								sec:authorize="hasRole('ROLE_CLIENTE')"
+								class="nav-item nav-link ml-4 mr-4" href="/EmGula/historico">Histórico de
+								Pedidos</a>
+							<div class="nav-item d-inline-flex" sec:authorize="isAnonymous()">
+								<a class="nav-link" href="/EmGula/cadastrar">Cadastre-se</a> <a
+									class="btn btn-dark ml-9" href="/EmGula/logar">Entrar</a>
+							</div>
+							<div sec:authorize="isAuthenticated()"
+								class="nav-item d-inline-flex">
+
+								<a class="btn btn-danger " href="/logout">Encerrar sessão</a>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -67,19 +81,24 @@
 			</div>
 
 			<div class="container mt-5 mb-5">
-				<div class="row justify-content-md-center mb-5 shadow p-3 mb-5 bg-white rounded"> <h1>Destaques</h1></div>
+				<div
+					class="row justify-content-md-center mb-5 shadow p-3 mb-5 bg-white rounded">
+					<h1 class="text-secondary ">Destaques</h1>
+				</div>
 				<div class="row justify-content-md-center">
 					<div th:each="prato :${listaDePratos}"
 						class="col-sm-6 col-xl-4 mb-4 ">
 						<div class="card text-center shadow-lg p-3 mb-5 rounded ">
 							<img width="200px" height="300px"
-								th:src=" '/' + ${prato.imagemCaminho}" class="shadow p-3 mb-5 bg-white rounded card-img-top"
-								alt="..." />
+								th:src=" '/' + ${prato.imagemCaminho}"
+								class="shadow p-3 mb-5 bg-white rounded card-img-top" alt="..." />
 							<div class="card-body shadow">
-								<h1 th:text="${prato.nome}" class="shadow-sm card-title"></h1>
-								<p th:text="'R$ ' + ${prato.preco}" class="shadow-sm card-text"></p>
-								<a th:href="@{/EmGula/cardapio}" class="shadow-sm btn btn-primary">Ver
-									no Cardápio</a>
+								<h2 th:text="${prato.nome}"
+									class="shadow-sm card-title text-secondary"></h2>
+								<h1 th:text="'R$ ' + ${prato.preco}"
+									class="shadow-sm text-secondary card-text"></h1>
+								<a th:href="@{/EmGula/cardapio}"
+									class="shadow-sm btn btn-primary">Ver no Cardápio</a>
 							</div>
 						</div>
 					</div>
